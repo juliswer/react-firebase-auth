@@ -1,11 +1,7 @@
 import Hero from "../components/Hero";
 import Phone from "../components/Phone";
-import { useAuth } from "../context/authContext";
 
 function Home() {
-  const {user} = useAuth()
-  console.log(user);
-
   return (
     <div>
       <h2 className="pt-10 text-white text-center text-2xl font-bold">
