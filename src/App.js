@@ -3,6 +3,7 @@ import './app.css';
 function App() {
   return (
     <div>
+      <h2 className="pt-10 text-white text-center text-2xl font-bold">React Firebase Auth App</h2>
       <div className="grid place-items-center h-screen grid-cols-6">
         <div className="col-span-4">
           <div className="mockup-phone">
