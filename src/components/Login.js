@@ -1,5 +1,8 @@
 export function Login() {
   return (
-    <div>Login</div>
+    <div>
+      <input type="email" name="email" id="email" />
+      <input type="password" name="password" id="password" />
+    </div>
   )
 }
