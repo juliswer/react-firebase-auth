@@ -29,15 +29,10 @@ export function Register() {
       });
       navigate("/");
     } catch (error) {
-      console.log(error.message);
-      toast.error(error.message, {
+      toast.error(error.message.slice(10), {
         position: "bottom-center",
       });
     }
-    setUser({
-      email: "",
-      password: "",
-    });
   };
 
   return (
