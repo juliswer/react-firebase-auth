@@ -30,7 +30,8 @@ export function AuthProvider({ children }) {
   };
 
   const logout = async () => {
-    return signOut(auth);
+    await signOut(auth);
+    localStorage.clear()
   };
 
   useEffect(() => {
