@@ -43,14 +43,14 @@ export function AuthProvider({ children }) {
       const res = await signInWithPopup(auth, googleProvider);
       toast.success(`Hello back ${res.user.displayName}!`, {
         position: "bottom-center",
-        duration: 5000
-      })
+        duration: 5000,
+      });
     } catch (error) {
-      console.log(error)
+      console.log(error);
       toast.error(error.message, {
         position: "bottom-center",
-        duration: 5000
-      })
+        duration: 5000,
+      });
     }
   };
 

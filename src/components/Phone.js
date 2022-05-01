@@ -11,14 +11,16 @@ function Phone() {
           <div className="flex flex-col w-full border-opacity-50">
             <div className="card bg-base-100 shadow-xl image-full">
               <figure>
-                <img
-                  src="https://api.lorem.space/image/shoes?w=400&h=225"
-                  alt="Shoes"
-                />
+                <img src="https://picsum.photos/600/700" alt="Random" />
               </figure>
               <div className="card-body">
-                <h2 className="card-title">{user && user.displayName || user.email}</h2>
-                <p>Hi, {user.displayName || user.email}, is really nice to see you again.</p>
+                <h2 className="card-title">
+                  {(user && user.displayName) || user.email}
+                </h2>
+                <p>
+                  Hi, {user.displayName || user.email}, is really nice to see
+                  you again.
+                </p>
               </div>
             </div>
           </div>
