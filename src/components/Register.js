@@ -1,6 +1,12 @@
 import { useState } from "react";
+import { useAuth } from "../context/authContext";
+import { useNavigate } from "react-router-dom";
 
 export function Register() {
+  const navigate = useNavigate();
+
+  const { signUp } = useAuth();
+
   const [user, setUser] = useState({
     email: "",
     password: "",
@@ -13,9 +19,14 @@ export function Register() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(user);
+    try {
+      await signUp(user.email, user.password);
+      navigate("/");
+    } catch (error) {
+      console.log(error.message);
+    }
     setUser({
       email: "",
       password: "",
@@ -54,8 +65,8 @@ export function Register() {
 
           <button className="btn btn-success mt-3">Register</button>
           <div className="divider">OR</div>
-          <button className="btn btn-outline">Sign up with Google</button>
         </form>
+        <button className="btn btn-outline">Sign up with Google</button>
       </div>
     </div>
   );
