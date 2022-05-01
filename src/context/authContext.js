@@ -1,6 +1,11 @@
-import { createContext } from "react";
+import { createContext, useContext } from "react";
 
-const context = createContext();
+export const authContext = createContext();
+
+export const useAuth = () => {
+    const context = useContext(authContext)
+    return context;
+}
 
 export function AuthProvider({ children }) {
 
@@ -9,8 +14,8 @@ export function AuthProvider({ children }) {
     }
 
   return (
-    <context.Provider value={{user}}>
+    <authContext.Provider value={{user}}>
         {children}
-    </context.Provider>
+    </authContext.Provider>
   );
 }
