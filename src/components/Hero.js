@@ -1,6 +1,6 @@
 function Hero() {
   return (
-    <div className="hero rounded-2xl p-5 w-max pt-10 bg-base-300/60">
+    <div className="hero rounded-2xl p-5 w-max pt-10 bg-base-300/60 animate__animated animate__fadeInRight">
       <div className="hero-content text-center">
         <div className="max-w-md">
           <h1 className="text-5xl font-bold">Hello there</h1>

@@ -25,19 +25,19 @@ export function Register() {
     try {
       await signup(user.email, user.password);
       toast.success("Successfully registered!", {
-        position: "bottom-center",
+        position: "top-center",
       });
       navigate("/");
     } catch (error) {
       toast.error(error.message.slice(10), {
-        position: "bottom-center",
+        position: "top-center",
       });
     }
   };
 
   return (
     <div className="grid place-items-center h-screen">
-      <div className="p-14 rounded-2xl bg-base-300/60">
+      <div className="p-14 rounded-2xl bg-base-300/60 animate__animated animate__fadeIn">
         <h1 className="text-2xl mb-3 font-bold text-center">Register</h1>
         <form onSubmit={handleSubmit}>
           <label htmlFor="email" className="label">

@@ -1,6 +1,6 @@
 function Phone() {
   return (
-    <div className="mockup-phone">
+    <div className="mockup-phone animate__animated animate__fadeInLeft">
       <div className="camera"></div>
       <div className="display">
         <div className="artboard artboard-demo phone-1 p-3">
