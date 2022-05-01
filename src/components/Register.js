@@ -25,12 +25,12 @@ export function Register() {
     try {
       await signup(user.email, user.password);
       toast.success("Successfully registered!", {
-        position: "top-center",
+        position: "bottom-center",
       });
       navigate("/");
     } catch (error) {
       toast.error(error.message.slice(10), {
-        position: "top-center",
+        position: "bottom-center",
       });
     }
   };

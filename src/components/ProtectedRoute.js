@@ -9,7 +9,6 @@ export function ProtectedRoute({ children }) {
     localStorage.setItem("email", email);
     const accessToken = user.accessToken;
     localStorage.setItem("accessToken", accessToken);
-    console.log(user);
   }
 
   const userEmail = localStorage.getItem("email");

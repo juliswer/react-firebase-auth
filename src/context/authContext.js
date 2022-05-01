@@ -8,6 +8,7 @@ import {
   signInWithPopup,
 } from "firebase/auth";
 import { auth } from "../firebase";
+import toast from "react-hot-toast";
 
 export const authContext = createContext();
 
@@ -36,9 +37,21 @@ export function AuthProvider({ children }) {
     localStorage.clear();
   };
 
-  const loginWithGoogle = () => {
-    const googleProvider = new GoogleAuthProvider();
-    return signInWithPopup(auth, googleProvider);
+  const loginWithGoogle = async () => {
+    try {
+      const googleProvider = new GoogleAuthProvider();
+      const res = await signInWithPopup(auth, googleProvider);
+      toast.success(`Hello back ${res.user.displayName}!`, {
+        position: "bottom-center",
+        duration: 5000
+      })
+    } catch (error) {
+      console.log(error)
+      toast.error(error.message, {
+        position: "bottom-center",
+        duration: 5000
+      })
+    }
   };
 
   useEffect(() => {

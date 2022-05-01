@@ -29,12 +29,12 @@ export function Login() {
     try {
       await login(user.email, user.password);
       toast.success(`Hello again, ${user.email}`, {
-        position: "top-center",
+        position: "bottom-center",
       });
       navigate("/");
     } catch (error) {
       toast.error(error.message.slice(10), {
-        position: "top-center",
+        position: "bottom-center",
       });
     }
   };
