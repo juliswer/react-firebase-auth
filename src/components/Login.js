@@ -41,7 +41,7 @@ export function Login() {
 
   return (
     <div className="grid place-items-center h-screen">
-      <div className="p-14 rounded-2xl bg-base-300/60 animate__animated animate__fadeIn">
+      <div className="p-16 rounded-2xl bg-base-300/60 animate__animated animate__fadeIn">
         <h1 className="text-2xl mb-3 font-bold text-center">Login</h1>
         <form onSubmit={handleSubmit}>
           <label htmlFor="email" className="label">
@@ -68,10 +68,15 @@ export function Login() {
             value={user.password}
             onChange={handleChange}
           />
-
           <button className="btn btn-success mt-3 justify-end">Login</button>
-          <div className="divider">OR</div>
         </form>
+        <a
+          href="#!"
+          className="align-baseline font-bold text-sm text-blue-500 hover:text-blue-800 mt-3"
+        >
+          Forgot Password?
+        </a>
+        <div className="divider">OR</div>
         <button className="btn btn-outline" onClick={handleGoogleSignIn}>
           Log in with Google
         </button>

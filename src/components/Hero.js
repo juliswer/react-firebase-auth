@@ -14,10 +14,16 @@ function Hero() {
     <div className="hero rounded-2xl p-5 w-max pt-10 bg-base-300/60 animate__animated animate__fadeInRight">
       <div className="hero-content text-center">
         <div className="max-w-md">
-          {user.photoURL && (
+          {user.photoURL ? (
             <div className="avatar">
               <div className="w-24 rounded-full">
                 <img src={user.photoURL} alt={user.displayName} />
+              </div>
+            </div>
+          ) : (
+            <div class="avatar placeholder">
+              <div class="bg-neutral-focus text-neutral-content rounded-full w-12">
+                <span>{user.email.slice(0,2)}</span>
               </div>
             </div>
           )}

@@ -7,7 +7,26 @@ function Phone() {
     <div className="mockup-phone animate__animated animate__fadeInLeft">
       <div className="camera"></div>
       <div className="display">
-        <div className="artboard artboard-demo phone-1 p-3">
+        <div className="artboard bg-white phone-1 p-3">
+          {user.photoURL ? (
+            <div className="flex mt-8 mb-5">
+              <img
+                className="avatar rounded-full w-10 mr-2"
+                src={user.photoURL}
+                alt={user.displayName}
+              />
+              <p className="mt-2">{user.displayName}</p>
+            </div>
+          ) : (
+            <div className="flex mt-8 mb-5">
+              <div class="avatar placeholder w-10 mr-2">
+                <div class="bg-neutral-focus text-neutral-content rounded-full w-12">
+                  <span>{user.email.slice(0, 2)}</span>
+                </div>
+              </div>
+              <p className="mt-2">{user.email}</p>
+            </div>
+          )}
           <div className="flex flex-col w-full border-opacity-50">
             <div className="card bg-base-100 shadow-xl image-full">
               <figure>
