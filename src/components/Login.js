@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { useAuth } from "../context/authContext";
 import { useNavigate } from "react-router-dom";
-import toast from 'react-hot-toast';
+import toast from "react-hot-toast";
 
 export function Login() {
   const navigate = useNavigate();
 
-  const { signup } = useAuth();
+  const { login } = useAuth();
 
   const [user, setUser] = useState({
     email: "",
@@ -23,8 +23,8 @@ export function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await signup(user.email, user.password);
-      toast.success("Successfully registered!", {
+      await login(user.email, user.password);
+      toast.success("Hello again!", {
         position: "top-center",
       });
       navigate("/");
@@ -65,10 +65,10 @@ export function Login() {
             onChange={handleChange}
           />
 
-          <button className="btn btn-success mt-3">Register</button>
+          <button className="btn btn-success mt-3">Login</button>
           <div className="divider">OR</div>
         </form>
-        <button className="btn btn-outline">Sign up with Google</button>
+        <button className="btn btn-outline">Login with Google</button>
       </div>
     </div>
   );
