@@ -15,34 +15,48 @@ export function Register() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(user)
+    console.log(user);
     setUser({
       email: "",
       password: "",
-    })
-  }
+    });
+  };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label htmlFor="email">Email</label>
-      <input
-        type="email"
-        name="email"
-        id=""
-        placeholder="youremail@company.ltd"
-        value={user.email}
-        onChange={handleChange}
-      />
-      <label htmlFor="password">Password</label>
-      <input
-        type="password"
-        name="password"
-        id="password"
-        value={user.password}
-        onChange={handleChange}
-      />
+    <div className="grid place-items-center h-screen">
+      <div className="p-14 rounded-2xl bg-base-300/60">
+        <h1 className="text-2xl mb-3 font-bold text-center">Register</h1>
+        <form onSubmit={handleSubmit}>
+          <label htmlFor="email" className="label">
+            Email
+          </label>
+          <input
+            type="email"
+            name="email"
+            id=""
+            placeholder="youremail@company.ltd"
+            value={user.email}
+            onChange={handleChange}
+            className="input w-full max-w-xs"
+          />
+          <label htmlFor="password" className="label">
+            Password
+          </label>
+          <input
+            className="input w-full max-w-xs"
+            type="password"
+            name="password"
+            id="password"
+            placeholder="password123"
+            value={user.password}
+            onChange={handleChange}
+          />
 
-      <button>Register</button>
-    </form>
+          <button className="btn btn-success mt-3">Register</button>
+          <div className="divider">OR</div>
+          <button className="btn btn-outline">Sign up with Google</button>
+        </form>
+      </div>
+    </div>
   );
 }
