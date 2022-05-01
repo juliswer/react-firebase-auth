@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { useAuth } from "../context/authContext";
 import { useNavigate } from "react-router-dom";
+import toast from 'react-hot-toast';
 
 export function Register() {
   const navigate = useNavigate();
 
-  const { signUp } = useAuth();
+  const { signup } = useAuth();
 
   const [user, setUser] = useState({
     email: "",
@@ -22,10 +23,16 @@ export function Register() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await signUp(user.email, user.password);
+      await signup(user.email, user.password);
+      toast.success("Successfully registered!", {
+        position: "bottom-center",
+      });
       navigate("/");
     } catch (error) {
       console.log(error.message);
+      toast.error(error.message, {
+        position: "bottom-center",
+      });
     }
     setUser({
       email: "",

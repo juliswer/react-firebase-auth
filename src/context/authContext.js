@@ -13,11 +13,11 @@ export const useAuth = () => {
 };
 
 export function AuthProvider({ children }) {
-  const signUp = (email, password) => {
-    createUserWithEmailAndPassword(auth, email, password);
+  const signup = (email, password) => {
+    return createUserWithEmailAndPassword(auth, email, password);
   };
 
   return (
-    <authContext.Provider value={{ signUp }}>{children}</authContext.Provider>
+    <authContext.Provider value={{ signup }}>{children}</authContext.Provider>
   );
 }
