@@ -1,4 +1,8 @@
+import { useAuth } from "../context/authContext";
+
 function Phone() {
+  const { user } = useAuth();
+
   return (
     <div className="mockup-phone animate__animated animate__fadeInLeft">
       <div className="camera"></div>
@@ -13,13 +17,8 @@ function Phone() {
                 />
               </figure>
               <div className="card-body">
-                <h2 className="card-title">React Firebase</h2>
-                <p>If a dog chews shoes whose shoes does he choose?</p>
-                <div className="card-actions justify-end">
-                  <button className="btn btn-primary btn-success">
-                    Buy Now
-                  </button>
-                </div>
+                <h2 className="card-title">{user && user.displayName || user.email}</h2>
+                <p>Hi, {user.displayName || user.email}, is really nice to see you again.</p>
               </div>
             </div>
           </div>

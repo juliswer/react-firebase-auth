@@ -6,7 +6,7 @@ import toast from "react-hot-toast";
 export function Login() {
   const navigate = useNavigate();
 
-  const { login } = useAuth();
+  const { login, loginWithGoogle } = useAuth();
   const [user, setUser] = useState({
     email: "",
     password: "",
@@ -18,6 +18,11 @@ export function Login() {
       [e.target.name]: e.target.value,
     });
   };
+
+  const handleGoogleSignIn = async () => {
+    await loginWithGoogle()
+    navigate("/")
+  } 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -64,10 +69,10 @@ export function Login() {
             onChange={handleChange}
           />
 
-          <button className="btn btn-success mt-3">Login</button>
+          <button className="btn btn-success mt-3 justify-end">Login</button>
           <div className="divider">OR</div>
         </form>
-        <button className="btn btn-outline">Log in with Google</button>
+        <button className="btn btn-outline" onClick={handleGoogleSignIn}>Log in with Google</button>
         <div className="divider"></div>
         <h5>Don't have an account? <Link to="/register" className="text-blue-600 hover:text-blue-500">Create one</Link></h5>
       </div>
