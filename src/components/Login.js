@@ -6,7 +6,7 @@ import toast from "react-hot-toast";
 export function Login() {
   const navigate = useNavigate();
 
-  const { login, loginWithGoogle } = useAuth();
+  const { login, loginWithGoogle, resetPassword } = useAuth();
   const [user, setUser] = useState({
     email: "",
     password: "",
@@ -39,13 +39,23 @@ export function Login() {
     }
   };
 
-  const handleResetPassword = () => {
+  const handleResetPassword = async () => {
     if (!user.email) {
       toast.error("Please enter your email", {
         position: "bottom-center",
       });
-    } else {
-      console.log('reset');
+    }
+    try {
+      await resetPassword(user.email);
+      toast("Reset password email sent", {
+        position: "bottom-center",
+        icon: "❗"
+      })
+    } catch (error) {
+      console.log(error);
+      toast.error(error.message, {
+        position: "bottom-center",
+      });
     }
   };
 

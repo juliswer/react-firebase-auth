@@ -6,6 +6,7 @@ import {
   signOut,
   GoogleAuthProvider,
   signInWithPopup,
+  sendPasswordResetEmail
 } from "firebase/auth";
 import { auth } from "../firebase";
 import toast from "react-hot-toast";
@@ -54,6 +55,10 @@ export function AuthProvider({ children }) {
     }
   };
 
+  const resetPassword = (email) => {
+    return sendPasswordResetEmail(auth, email)
+  }
+
   useEffect(() => {
     onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
@@ -63,7 +68,7 @@ export function AuthProvider({ children }) {
 
   return (
     <authContext.Provider
-      value={{ signup, login, user, logout, loading, loginWithGoogle }}
+      value={{ signup, login, user, logout, loading, loginWithGoogle, resetPassword }}
     >
       {children}
     </authContext.Provider>
