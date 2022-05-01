@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useAuth } from "../context/authContext";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 
 export function Register() {
@@ -69,6 +69,8 @@ export function Register() {
           <div className="divider">OR</div>
         </form>
         <button className="btn btn-outline">Sign up with Google</button>
+        <div className="divider"></div>
+        <h5>Already have an account? <Link to="/login" className="text-blue-600 hover:text-blue-500">Log in</Link></h5>
       </div>
     </div>
   );

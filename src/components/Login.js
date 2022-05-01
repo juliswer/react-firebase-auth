@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useAuth } from "../context/authContext";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import toast from "react-hot-toast";
 
 export function Login() {
@@ -68,6 +68,8 @@ export function Login() {
           <div className="divider">OR</div>
         </form>
         <button className="btn btn-outline">Login with Google</button>
+        <div className="divider"></div>
+        <h5>Don't have an account? <Link to="/register" className="text-blue-600 hover:text-blue-500">Create one</Link></h5>
       </div>
     </div>
   );
