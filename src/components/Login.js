@@ -7,7 +7,6 @@ export function Login() {
   const navigate = useNavigate();
 
   const { login } = useAuth();
-
   const [user, setUser] = useState({
     email: "",
     password: "",
@@ -24,7 +23,7 @@ export function Login() {
     e.preventDefault();
     try {
       await login(user.email, user.password);
-      toast.success("Hello again!", {
+      toast.success(`Hello again, ${user.email}`, {
         position: "top-center",
       });
       navigate("/");
