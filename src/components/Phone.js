@@ -43,6 +43,17 @@ function Phone() {
               </div>
             </div>
           </div>
+          <ul className="menu menu-horizontal border border-indigo-400 bg-base-100 rounded-box flex justify-center mt-10">
+            <li>
+              <p>Item 1</p>
+            </li>
+            <li>
+              <p>Item 2</p>
+            </li>
+            <li>
+              <p>Item 3</p>
+            </li>
+          </ul>
         </div>
       </div>
     </div>

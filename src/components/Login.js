@@ -39,6 +39,16 @@ export function Login() {
     }
   };
 
+  const handleResetPassword = () => {
+    if (!user.email) {
+      toast.error("Please enter your email", {
+        position: "bottom-center",
+      });
+    } else {
+      console.log('reset');
+    }
+  };
+
   return (
     <div className="grid place-items-center h-screen">
       <div className="p-16 rounded-2xl bg-base-300/60 animate__animated animate__fadeIn">
@@ -54,7 +64,7 @@ export function Login() {
             placeholder="youremail@company.ltd"
             value={user.email}
             onChange={handleChange}
-            className="input w-full max-w-xs"
+            className="input w-full min-w-full"
           />
           <label htmlFor="password" className="label">
             Password
@@ -70,12 +80,12 @@ export function Login() {
           />
           <button className="btn btn-success mt-3 justify-end">Login</button>
         </form>
-        <a
-          href="#!"
-          className="align-baseline font-bold text-sm text-blue-500 hover:text-blue-800 mt-3"
+        <p
+          onClick={handleResetPassword}
+          className="text-center font-bold text-sm text-blue-500 hover:text-blue-800 mt-3 hover:cursor-pointer"
         >
           Forgot Password?
-        </a>
+        </p>
         <div className="divider">OR</div>
         <button className="btn btn-outline" onClick={handleGoogleSignIn}>
           Log in with Google
