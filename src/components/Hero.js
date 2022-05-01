@@ -23,7 +23,7 @@ function Hero() {
           ) : (
             <div class="avatar placeholder">
               <div class="bg-neutral-focus text-neutral-content rounded-full w-12">
-                <span>{user.email.slice(0,2)}</span>
+                <span>{user.email.slice(0, 2)}</span>
               </div>
             </div>
           )}

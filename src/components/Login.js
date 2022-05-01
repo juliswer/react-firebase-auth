@@ -49,8 +49,8 @@ export function Login() {
       await resetPassword(user.email);
       toast("Reset password email sent", {
         position: "bottom-center",
-        icon: "❗"
-      })
+        icon: "❗",
+      });
     } catch (error) {
       console.log(error);
       toast.error(error.message, {
